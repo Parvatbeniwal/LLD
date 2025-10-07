@@ -33,13 +33,15 @@ public class PrinterMain {
     * ------------------------------------private methods---------------------------------------------------------------
     *
     * */
-    private static void printNumberMainThread() {
+    private static void printNumberMainThread() throws InterruptedException {
         System.out.println("Main Thread " + Thread.currentThread().getName());
         HelloWordPrinter printer = new HelloWordPrinter();
         printer.run(); // run in parent thread
 
         Thread thread = new Thread(printer);
-        thread.start(); // starting thread
+        thread.start();
+        thread.join();
+        // starting thread
     }
 
 

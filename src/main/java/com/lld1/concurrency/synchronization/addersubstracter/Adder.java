@@ -1,4 +1,4 @@
-package com.lld1.concurrency.synchronization;
+package com.lld1.concurrency.synchronization.addersubstracter;
 
 import java.util.concurrent.locks.Lock;
 

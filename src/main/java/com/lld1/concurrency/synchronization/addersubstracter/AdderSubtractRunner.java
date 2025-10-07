@@ -1,4 +1,4 @@
-package com.lld1.concurrency.synchronization;
+package com.lld1.concurrency.synchronization.addersubstracter;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,8 +6,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class AdderSubtractRunner {
 
     public static void main(String[] args) throws InterruptedException {
-
-
         withOutLockScenario();
 
 
@@ -24,9 +22,14 @@ public class AdderSubtractRunner {
         Adder adder = new Adder(count);
         Subtracter subtracter = new Subtracter(count);
 
-        new Thread(adder).start();
-        new Thread(subtracter).start();
-        Thread.sleep(2000);
+        Thread adderThread = new Thread(adder);
+        adderThread.start();
+
+        Thread subtracterThread =  new Thread(subtracter);
+        subtracterThread.start();
+
+        adderThread.join();
+        subtracterThread.join();
         System.out.println("Output Without Lock :  " + count.getValue());
     }
 
@@ -37,10 +40,14 @@ public class AdderSubtractRunner {
         Adder adder = new Adder(count, lock);
         Subtracter subtracter = new Subtracter(count, lock);
 
-        new Thread(adder).start();
-        new Thread(subtracter).start();
+        Thread adderThread = new Thread(adder);
+        Thread subtracterThread =  new Thread(subtracter);
 
-        Thread.sleep(2000);
+        adderThread.start();
+        subtracterThread.start();
+
+        adderThread.join();
+        subtracterThread.join();
 
         System.out.println("Output With Lock :  " + count.getValue());
     }

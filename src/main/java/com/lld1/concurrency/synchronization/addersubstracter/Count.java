@@ -1,4 +1,4 @@
-package com.lld1.concurrency.synchronization;
+package com.lld1.concurrency.synchronization.addersubstracter;
 
 public class Count {
     private  int value;
