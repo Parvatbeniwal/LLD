@@ -1,7 +1,7 @@
-package com.lld1.inventory;
+package com.lld1.library.inventory;
 
-import com.lld1.management.Lendable;
-import com.lld1.user.User;
+import com.lld1.library.management.Lendable;
+import com.lld1.library.user.User;
 
 public abstract class Book implements Lendable {
     private String isbn;
@@ -9,9 +9,6 @@ public abstract class Book implements Lendable {
     private String author;
     boolean isAvailable;
 
-   /*
-   * Book Can we of various Genre
-   * */
     public abstract void displayBookDetails();
 
     @Override

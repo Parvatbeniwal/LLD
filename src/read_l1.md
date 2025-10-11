@@ -167,3 +167,11 @@ Build a library system where:
 
 ---
 
+```
+Setting up rsa key for git hub account
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_personal
+ssh-add -l
+```
+

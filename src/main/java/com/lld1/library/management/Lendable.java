@@ -1,6 +1,6 @@
-package com.lld1.management;
+package com.lld1.library.management;
 
-import com.lld1.user.User;
+import com.lld1.library.user.User;
 
 public interface Lendable {
 
